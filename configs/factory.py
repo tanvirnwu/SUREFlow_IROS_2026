@@ -47,39 +47,39 @@ def _get_class_from_target(target: str) -> Type:
         return torch.optim.Adam
     elif target == "torch.optim.SGD":
         return torch.optim.SGD
-    elif target == "MambaVLA.MambaVLA" or target == "MambaVLA.MambaVLA":
+    elif target == "SUREFlow.SUREFlow":
         # Import via package __init__ to keep a stable public API
-        from MambaVLA import MambaVLA
-        return MambaVLA
-    elif target == "MambaVLA.Trainer":
-        from MambaVLA.main import Trainer
+        from SUREFlow import SUREFlow
+        return SUREFlow
+    elif target == "SUREFlow.Trainer":
+        from SUREFlow.main import Trainer
         return Trainer
-    elif target == "MambaVLA.benchmark.libero.libero_sim.LiberoSim":
-        from MambaVLA.benchmark.libero.libero_sim import MultiTaskSim
+    elif target == "SUREFlow.benchmark.libero.libero_sim.LiberoSim":
+        from SUREFlow.benchmark.libero.libero_sim import MultiTaskSim
         return MultiTaskSim
-    elif target == "MambaVLA.ActionFLowMatching":
-        from MambaVLA import ActionFLowMatching
+    elif target == "SUREFlow.ActionFLowMatching":
+        from SUREFlow import ActionFLowMatching
         return ActionFLowMatching
-    elif target == "MambaVLA.MambaVLAPolicy":
-        from MambaVLA import MambaVLAPolicy
-        return MambaVLAPolicy
-    elif target == "MambaVLA.MambaModel":
-        from MambaVLA import MambaModel
+    elif target == "SUREFlow.SUREFlowPolicy":
+        from SUREFlow import SUREFlowPolicy
+        return SUREFlowPolicy
+    elif target == "SUREFlow.MambaModel":
+        from SUREFlow import MambaModel
         return MambaModel
-    elif target == "MambaVLA.CLIPImgEncoder":
-        from MambaVLA import CLIPImgEncoder
+    elif target == "SUREFlow.CLIPImgEncoder":
+        from SUREFlow import CLIPImgEncoder
         return CLIPImgEncoder
-    elif target == "MambaVLA.LangClip":
-        from MambaVLA import LangClip
+    elif target == "SUREFlow.LangClip":
+        from SUREFlow import LangClip
         return LangClip
-    elif target == "MambaVLA.MultiImageObsEncoder":
-        from MambaVLA import MultiImageObsEncoder
+    elif target == "SUREFlow.MultiImageObsEncoder":
+        from SUREFlow import MultiImageObsEncoder
         return MultiImageObsEncoder
-    elif target == "MambaVLA.ResNetEncoder":
-        from MambaVLA import ResNetEncoder
+    elif target == "SUREFlow.ResNetEncoder":
+        from SUREFlow import ResNetEncoder
         return ResNetEncoder
-    elif target == "MambaVLA.benchmark.libero.libero_dataset.LiberoDataset":
-        from MambaVLA.benchmark.libero.libero_dataset import LiberoDataset
+    elif target == "SUREFlow.benchmark.libero.libero_dataset.LiberoDataset":
+        from SUREFlow.benchmark.libero.libero_dataset import LiberoDataset
         return LiberoDataset
     else:
         raise ValueError(f"Unknown target class: {target}")
@@ -132,7 +132,7 @@ def create_trainer(config: MainConfig) -> Any:
     trainer_config = config.trainer
     
     # Create dataset directly with only the required parameters
-    from MambaVLA.benchmark.libero.libero_dataset import LiberoDataset
+    from SUREFlow.benchmark.libero.libero_dataset import LiberoDataset
     from pathlib import Path
     dataset = LiberoDataset(
         data_directory=Path(config.dataset.dataset_path),
@@ -146,7 +146,7 @@ def create_trainer(config: MainConfig) -> Any:
     )
     
     # Create the trainer directly with individual parameters from sub-configurations
-    from MambaVLA.main import Trainer
+    from SUREFlow.main import Trainer
     trainer = Trainer(
         training_dataset=dataset,
         validation_dataset=dataset,  # Using same dataset for validation
@@ -205,7 +205,7 @@ def create_optimizer(model: Any, config: OptimizerConfig) -> torch.optim.Optimiz
 
 def create_lr_scheduler(optimizer: torch.optim.Optimizer, config: LRSchedulerConfig) -> Any:
     """Create a learning rate scheduler."""
-    from MambaVLA.utils.lr_schedulers.tri_stage_scheduler import TriStageLRScheduler
+    from SUREFlow.utils.lr_schedulers.tri_stage_scheduler import TriStageLRScheduler
     from omegaconf import DictConfig
     
     # Create a DictConfig-like structure for the scheduler

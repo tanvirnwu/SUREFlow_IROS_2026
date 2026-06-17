@@ -25,7 +25,7 @@ class WandbConfig:
     """Wandb configuration."""
     enabled: bool = True
     entity: Optional[str] = "tanvirnwu"
-    project: Optional[str] = "RoboVLA"
+    project: Optional[str] = "SUREFlow"
     mode: Optional[str] = "LG_AQD_lambda_u:0.001_bs:256,demo:70,sam:70"
     tags: List[str] = field(default_factory=list)
 
@@ -69,7 +69,7 @@ class ShapeMetaConfig:
 @dataclass
 class MambaEncoderConfig:
     """Mamba encoder configuration."""
-    _target_: str = "MambaVLA.MambaModel"
+    _target_: str = "SUREFlow.MambaModel"
     d_model: int = 256
     n_layer: int = 5
     d_intermediate: int = 256
@@ -84,7 +84,7 @@ class MambaEncoderConfig:
 @dataclass
 class BackboneConfig:
     """Backbone configuration."""
-    _target_: str = "MambaVLA.MambaVLAPolicy"
+    _target_: str = "SUREFlow.SUREFlowPolicy"
     latent_dim: int = LATENT_DIM
     action_dim: int = ACTION_DIM
     lang_emb_dim: int = LANG_EMB_DIM
@@ -109,7 +109,7 @@ class BackboneConfig:
 @dataclass
 class ActionFlowMatchingConfig:
     """Model configuration."""
-    _target_: str = "MambaVLA.ActionFLowMatching"
+    _target_: str = "SUREFlow.ActionFLowMatching"
     ln: bool = False
     device: str = DEVICE
     backbones: BackboneConfig = field(default_factory=BackboneConfig)
@@ -118,7 +118,7 @@ class ActionFlowMatchingConfig:
 @dataclass
 class ObsEncoderConfig:
     """Observation encoder configuration."""
-    _target_: str = "MambaVLA.MultiImageObsEncoder"
+    _target_: str = "SUREFlow.MultiImageObsEncoder"
     shape_meta: Dict = field(default_factory=lambda: {
         'obs': {
             'agentview_image': {'shape': [3, 128, 128], 'type': 'rgb'},
@@ -126,7 +126,7 @@ class ObsEncoderConfig:
         }
     })
     rgb_model: Dict = field(default_factory=lambda: {
-        '_target_': 'MambaVLA.ResNetEncoder',
+        '_target_': 'SUREFlow.ResNetEncoder',
         'latent_dim': 256,
         'pretrained': False,
         'freeze_backbone': False,
@@ -142,14 +142,14 @@ class ObsEncoderConfig:
 @dataclass
 class LanguageEncoderConfig:
     """Language encoder configuration."""
-    _target_: str = "MambaVLA.LangClip"
+    _target_: str = "SUREFlow.LangClip"
     # model_name: str = "ViT-B/32"
 
 
 @dataclass
 class ModelConfig:
     """Model configuration."""
-    _target_: str = "MambaVLA.MambaVLA"
+    _target_: str = "SUREFlow.SUREFlow"
     if_film_condition: bool = False
     consider_robot_states: bool = consider_robot_states
     optimizer: OptimizerConfig = field(default_factory=OptimizerConfig)
@@ -220,7 +220,7 @@ class VisualsConfig:
 @dataclass
 class TrainerConfig:
     """Trainer configuration."""
-    _target_: str = "MambaVLA.Trainer"
+    _target_: str = "SUREFlow.Trainer"
     device: str = DEVICE
     
     # Sub-configurations
@@ -279,7 +279,7 @@ class TrainerConfig:
 @dataclass
 class DatasetConfig:
     """Dataset configuration."""
-    _target_: str = "MambaVLA.benchmark.libero.libero_dataset.LiberoDataset"
+    _target_: str = "SUREFlow.benchmark.libero.libero_dataset.LiberoDataset"
     # Note: benchmark_type is not passed to LiberoDataset, it's extracted from data_directory
     benchmark_type: str = "libero_object"  # Used for path construction
     demos_per_task: int = 70
@@ -311,7 +311,7 @@ class DatasetConfig:
 @dataclass
 class SimulationConfig:
     """Simulation configuration."""
-    _target_: str = "MambaVLA.benchmark.libero.libero_sim.LiberoSim"
+    _target_: str = "SUREFlow.benchmark.libero.libero_sim.LiberoSim"
     rollouts: int = 1
     max_step_per_episode: int = 600
     benchmark_type: str = DatasetConfig.benchmark_type
@@ -322,16 +322,16 @@ class SimulationConfig:
     n_cores: int = 2
     use_multiprocessing: bool = False
     save_video: bool = True
-    save_video_dir: str = "/home/HDD/tanvir_HDD/robot/RoboVLA/Evl_Video"
+    save_video_dir: str = "/home/HDD/tanvir_HDD/robot/SUREFlow/Evl_Video"
 
 @dataclass
 class MainConfig:
     """Main configuration class that contains all other configurations."""
     # Basic settings
     model_name: str = "mamba"
-    group: str = "MambaVLA"
+    group: str = "SUREFlow"
     seed: int = 0
-    project: Optional[str] = "RoboVLA"
+    project: Optional[str] = "SUREFlow"
     mode: Optional[str] = None
     eval_benchmark_type: Optional[str] = None
     

@@ -420,7 +420,7 @@ def main(train_suite: str = "libero_object", eval_suite: str | None = None, chec
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(description="Train MambaVLA model")
+    parser = argparse.ArgumentParser(description="Train SUREFlow model")
     parser.add_argument(
         "--train_suite",
         type=str,
