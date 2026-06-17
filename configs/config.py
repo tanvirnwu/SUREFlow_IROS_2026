@@ -56,7 +56,7 @@ class WandbConfig:
     enabled: bool = True
     entity: Optional[str] = "tanvirnwu"
     project: Optional[str] = "SUREFlow"
-    mode: Optional[str] = "LG_AQD_lambda_u:0.001_bs:256,demo:70,sam:70"
+    mode: Optional[str] = ""
     tags: List[str] = field(default_factory=list)
 
 
