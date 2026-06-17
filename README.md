@@ -40,18 +40,18 @@ Supported `--train_suite` values: `libero_object`, `libero_spatial`, `libero_goa
 Evaluate a checkpoint on the same vanilla suite:
 
 ```bash
-python run.py --train_suite libero_goal --checkpoint_path /path/to/ckpt.pth
+python run.py --train_suite libero_spatial --checkpoint_path /path/to/ckpt.pth
 ```
 
 ### 2) LIBERO-PRO evaluation on the same checkpoint
 Evaluate the same checkpoint on a LIBERO-PRO suite:
 
 ```bash
-python run.py --train_suite libero_goal --eval_suite object --checkpoint_path /path/to/ckpt.pth
+python run.py --train_suite libero_spatial --eval_suite object --checkpoint_path /path/to/ckpt.pth
 ```
 
 #### Eval suites (LIBERO-PRO suffixes)
-Optional `--eval_suite` values: `swap`, `object`, `lan`, `task`, `temp`
+Optional `--eval_suite` values: `object`, `swap`, `lan`, `task`, `temp`
 
 In this mode:
 - dataset benchmark remains `libero_goal`
