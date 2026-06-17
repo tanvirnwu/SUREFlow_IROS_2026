@@ -1,3 +1,15 @@
+<h4 align="center"><strong><a href="https://2026.ieee-iros.org/">Published at ACM Multimedia 2026, Pittsburgh, PA, USA</a></strong></h4>
+<h2 align="center"><strong>SUREFlow: State-space Uncertainty-aware REsidual Flow Matching for Robust Robot Manipulation <a href="https://tanvirnwu.github.io/assets/SUREFlow_IROS_2026.pdf" target="_blank">[Paper]</a></strong></h2>
+<h6 align="center">Md Tanvir Islam, Sai Navaneet Peddapalli, Sangmoon Lee, Sangtae Ahn<sup>*</sup></h6>
+<h6 align="center">| 1. Kyungpook National University, Daegu 41566, Republic of Korea || *Corresponding Author |</h6> 
+<hr>
+
+## SUREFlow Architecture
+
+![](./assets/SUREFlow.jpg)
+
+
+
 # SUREFlow
 
 SUREFlow supports training on LIBERO suites and evaluating a trained checkpoint on either:
