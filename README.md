@@ -20,21 +20,6 @@ This is done by decoupling:
 - **train suite**: dataset + training language embeddings
 - **eval suite**: simulator benchmark + evaluation language embeddings
 
-## Train suites
-Supported `--train_suite` values:
-- `libero_object`
-- `libero_spatial`
-- `libero_goal`
-- `libero_90`
-- `libero_10`
-
-## Eval suites (LIBERO-PRO suffixes)
-Optional `--eval_suite` values:
-- `swap`
-- `object`
-- `lan`
-- `task`
-- `temp`
 
 When `--eval_suite` is set, simulator benchmark becomes:
 `<train_suite>_<eval_suite>`
@@ -46,9 +31,15 @@ Examples:
 Train on a vanilla LIBERO suite:
 
 ```bash
-python run.py --train_suite libero_goal
+python run.py --train_suite libero_spatial
 ```
-
+Supported `--train_suite` values:
+- `libero_object`
+- `libero_spatial`
+- `libero_goal`
+- `libero_90`
+- `libero_10`
+- 
 ## Evaluation with a checkpoint
 ### 1) Vanilla LIBERO evaluation
 Evaluate a checkpoint on the same vanilla suite:
@@ -56,7 +47,14 @@ Evaluate a checkpoint on the same vanilla suite:
 ```bash
 python run.py --train_suite libero_goal --checkpoint_path /path/to/ckpt.pth
 ```
-
+#### Eval suites (LIBERO-PRO suffixes)
+Optional `--eval_suite` values:
+- `swap`
+- `object`
+- `lan`
+- `task`
+- `temp`
+- 
 ### 2) LIBERO-PRO evaluation on the same checkpoint
 Evaluate the same checkpoint on a LIBERO-PRO suite:
 
