@@ -5,6 +5,10 @@
     <orderEntry type="jdk" jdkName="yolov11" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+  <component name="PyDocumentationSettings">
+    <option name="format" value="PLAIN" />
+    <option name="myDocStringFormat" value="Plain" />
+  </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_FOLDERS">
       <list>
