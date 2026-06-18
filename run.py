@@ -150,14 +150,23 @@ def _resolve_wandb_mode(wandb_cfg) -> str | None:
 
 def _merge_wandb_tags(existing_tags, required_tags: list[str]) -> list[str]:
     merged: list[str] = []
+
+    def _add(tag) -> None:
+        # W&B rejects empty/whitespace tags (must be 1-64 chars), so skip them.
+        if tag is None:
+            return
+        tag = str(tag).strip()
+        if tag and tag not in merged:
+            merged.append(tag)
+
     if existing_tags:
         if isinstance(existing_tags, (list, tuple, set)):
-            merged.extend([str(tag) for tag in existing_tags])
+            for tag in existing_tags:
+                _add(tag)
         else:
-            merged.append(str(existing_tags))
+            _add(existing_tags)
     for tag in required_tags:
-        if tag not in merged:
-            merged.append(tag)
+        _add(tag)
     return merged
 
 

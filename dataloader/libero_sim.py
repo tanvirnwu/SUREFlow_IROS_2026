@@ -664,17 +664,18 @@ class MultiTaskSim():
         print_colored_success_array(success)
         print_evaluation_summary(success_rate, average_success, num_tasks)
 
-        # Log to wandb
-        custom_step = f"{epoch}_custom_step"
-        wandb.define_metric(custom_step)
-        wandb.define_metric(f"{epoch}_tasks_success", step_metric=custom_step)
+        # Log to wandb (skip if W&B was not initialised, e.g. init failed)
+        if wandb.run is not None:
+            custom_step = f"{epoch}_custom_step"
+            wandb.define_metric(custom_step)
+            wandb.define_metric(f"{epoch}_tasks_success", step_metric=custom_step)
 
-        for num in range(num_tasks):
-            wandb.log({custom_step: num,
-                       f"{epoch}_tasks_success": success_rate[num].item()
-                       })
+            for num in range(num_tasks):
+                wandb.log({custom_step: num,
+                           f"{epoch}_tasks_success": success_rate[num].item()
+                           })
 
-        wandb.log({f"epoch{epoch}_average_success": average_success})
+            wandb.log({f"epoch{epoch}_average_success": average_success})
 
         if getattr(self.visuals_config, "enabled", False) and self.visuals_testing_dir is not None:
             task_labels = [f"{idx}" for idx in range(num_tasks)]

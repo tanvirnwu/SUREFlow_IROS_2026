@@ -18,7 +18,6 @@ import einops
 import torch
 import torch.nn as nn
 import wandb
-from SUREFlow.utils.lr_schedulers.tri_stage_scheduler import TriStageLRScheduler
 
 log = logging.getLogger(__name__)
 
@@ -336,7 +335,10 @@ class SUREFlow(nn.Module):
 
         # Optionally initialize the scheduler
         if self.use_lr_scheduler:
-            scheduler = TriStageLRScheduler(optimizer, self.lr_scheduler)
+            # Delegate to the factory, which wraps the flat LRSchedulerConfig into
+            # the nested structure TriStageLRScheduler expects (configs.lr_scheduler.*).
+            from configs.factory import create_lr_scheduler
+            scheduler = create_lr_scheduler(optimizer, self.lr_scheduler)
 
             return optimizer, scheduler
 

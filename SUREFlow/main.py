@@ -247,7 +247,8 @@ class Trainer:
                         "exp_s_hat_mean": epoch_metrics["exp_s_hat_mean"],
                     }
                 )
-        wandb.log(log_data)
+        if wandb.run is not None:
+            wandb.log(log_data)
         log.info("Epoch {}: Mean train loss is {}".format(num_epoch, epoch_loss.item()))
 
     def _save_checkpoint_if_needed(self, model, num_epoch):
