@@ -183,7 +183,9 @@ def create_simulation(config: MainConfig) -> Any:
         device=config.device,
         render_image=sim_config.render_image,
         n_cores=sim_config.n_cores,
-        use_multiprocessing=sim_config.use_multiprocessing
+        use_multiprocessing=sim_config.use_multiprocessing,
+        save_video=sim_config.save_video,
+        save_video_dir=sim_config.save_video_dir
     )
     simulation.cfg = config
 

@@ -16,6 +16,7 @@ from tqdm import tqdm
 from colorama import init, Fore, Style, Back
 from types import SimpleNamespace
 
+from dataloader.video_paths import task_video_dir as build_task_video_dir
 from SUREFlow.utils import visuals
 from SUREFlow.utils.sim_path import sim_framework_path
 
@@ -313,8 +314,7 @@ class MultiTaskSim():
             # Setup video recording with task-specific folders
             task_video_dir = None
             if self.save_video and self.save_video_dir is not None:
-                os.makedirs(self.save_video_dir, exist_ok=True)
-                task_video_dir = os.path.join(self.save_video_dir, f"{self.benchmark_type}", "videos", f"{file_name}")
+                task_video_dir = build_task_video_dir(self.save_video_dir, self.benchmark_type, file_name)
     
             # Print task name in a box format
             task_name_length = len(file_name)

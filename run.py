@@ -42,6 +42,7 @@ from configs.config import (
     create_libero_pro_eval_config,
 )
 from configs.factory import create_model, create_trainer, create_simulation
+from dataloader.video_paths import eval_video_root
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -354,10 +355,10 @@ def main(train_suite: str = "libero_object", eval_suite: str | None = None, chec
         tags=wandb_tags,
     )
 
-    if is_evaluation:
-        checkpoints_dir = os.path.join(run_dir, "checkpoints")
-    else:
-        checkpoints_dir = os.path.join(run_dir, "checkpoints")
+    checkpoints_dir = os.path.join(run_dir, "checkpoints")
+    cfg.simulation.save_video_dir = eval_video_root(checkpoint_path, checkpoints_dir)
+    if cfg.simulation.save_video:
+        log.info("Evaluation videos will be saved under %s", cfg.simulation.save_video_dir)
 
     # Create model and set its working_dir to the run-specific directory
     model = create_model(cfg)

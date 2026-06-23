@@ -353,7 +353,7 @@ class SimulationConfig:
     n_cores: int = 2
     use_multiprocessing: bool = False
     save_video: bool = False
-    save_video_dir: str = "/home/HDD/tanvir_HDD/robot/SUREFlow/Evl_Video"
+    save_video_dir: Optional[str] = None
 
 
 # ---------------------------------------------------------------------------
