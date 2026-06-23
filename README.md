@@ -1,6 +1,9 @@
 <h4 align="center"><strong><a href="https://2026.ieee-iros.org/">Accepted at IEEE/RSJ International Conference on Intelligent Robots & Systems (IROS) 2026, Pittsburgh, PA, USA</a></strong></h4>
 <h2 align="center"><strong>SUREFlow: State-space Uncertainty-aware REsidual Flow Matching for Robust Robot Manipulation</a></strong></h2>
-<h6 align="center">Md Tanvir Islam, Sai Navaneet Peddapalli, Sangmoon Lee, Sangtae Ahn<sup>*</sup></h6>
+<h6 align="center">Md Tanvir Islam<sup>
+    <a href="https://scholar.google.com/citations?user=UvINe-sAAAAJ&hl=en" target="_blank">
+      <img src="https://images.icon-icons.com/2108/PNG/512/google_scholar_icon_130918.png" alt="Google Scholar" width="14">
+    </a> Sai Navaneet Peddapalli, Sangmoon Lee, Sangtae Ahn<sup>*</sup></h6>
 <h6 align="center">Kyungpook National University, Daegu 41566, Republic of Korea | *Corresponding Author</h6> 
 <hr>
 
