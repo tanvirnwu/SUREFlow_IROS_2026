@@ -5,6 +5,7 @@
 <hr>
 
 ## SUREFlow Architecture
+Our SUREFlow is a mamba based lightweight (179M) vision-language-action model for Robot Manipulation..
 
 ![](./assets/SUREFlow_IROS_2026.jpg)
 
@@ -18,7 +19,6 @@
 | TraceVLA [17] | ICLR'25 | 84.6 | 85.2 | 75.1 | 54.1 | 74.8 |
 | **SUREFlow (Ours)** | **IROS'26** | **94.8** | **91.0** | **93.8** | **90.2** | **92.5** |
 
-- SUREFlow is a mamba based lightweight (179M) vision-language-action model for Robot Manipulation accepted at IROS 2026.
 
 
 # SUREFlow
