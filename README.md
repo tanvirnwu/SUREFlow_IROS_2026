@@ -9,6 +9,16 @@
 ![](./assets/SUREFlow_IROS_2026.jpg)
 
 
+## LIBERO Benchmark Results
+| Method | Venue | Spatial | Object | Goal | Long | Average |
+|---|---|---:|---:|---:|---:|---:|
+| Octo [13] | RSS'24 | 78.9 | 85.7 | 84.6 | 51.1 | 75.1 |
+| QueST [16] | NeurIPS'24 | 89.0 | 90.0 | 88.4 | 87.0 | 88.6 |
+| MAIL [3] | CoRL'24 | 53.8 | 81.5 | 56.3 | 41.7 | 58.3 |
+| TraceVLA [17] | ICLR'25 | 84.6 | 85.2 | 75.1 | 54.1 | 74.8 |
+| **SUREFlow (Ours)** | **IROS'26** | **94.8** | **91.0** | **93.8** | **90.2** | **92.5** |
+|
+
 
 # SUREFlow
 
