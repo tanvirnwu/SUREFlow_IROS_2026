@@ -85,6 +85,12 @@ In this mode:
 The public package is `SUREFlow`. The original Mamba implementation is kept under `SUREFlow/mamba/` so the backbone code remains easy to compare with the upstream block implementation.
 
 
+
+## Cite this Paper
+
+If you find our work useful in your research, please consider citing our paper and star ✨✨ this repository. Thank you!
+
+
 ```bibtex
 @article{islam2026sureflow,
   title={SUREFlow: State-space Uncertainty-aware REsidual Flow Matching for Robust Robot Manipulation},
