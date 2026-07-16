@@ -86,11 +86,9 @@ The public package is `SUREFlow`. The original Mamba implementation is kept unde
 
 
 ```bibtex
-@InProceedings{sureflow2026_IROS,
-    author    = {Islam, Md Tanvir and Peddapalli, Sai Navaneet and Lee, Sangmoon and Ahn, Sangtae},
-    title     = {SUREFlow: State-space Uncertainty-aware REsidual Flow Matching for Robust Robot Manipulation},
-    booktitle = {Proceedings of the IEEE/RSJ International Conference on Intelligent Robots & Systems (IROS)},
-    month     = {September},
-    year      = {2026}
+@article{islam2026sureflow,
+  title={SUREFlow: State-space Uncertainty-aware REsidual Flow Matching for Robust Robot Manipulation},
+  author={Islam, Md Tanvir and Peddapalli, Sai Navaneet and Lee, Sangmoon and Ahn, Sangtae},
+  journal={arXiv preprint arXiv:2607.10504},
+  year={2026}
 }
-
